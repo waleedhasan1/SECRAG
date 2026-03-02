@@ -86,28 +86,28 @@ export default function Home() {
   }
 
   return (
-    <div className="flex h-screen flex-col bg-white">
+    <div className="flex h-screen flex-col bg-[#0f0f0f]">
       {/* Header */}
-      <header className="flex items-center justify-between border-b px-6 py-3">
-        <h1 className="text-lg font-semibold text-gray-900">
+      <header className="flex items-center justify-between border-b border-gray-800 px-6 py-3">
+        <h1 className="text-lg font-semibold text-gray-100">
           SEC Filing Assistant
         </h1>
         <button
           onClick={handleNewChat}
-          className="rounded-lg border border-gray-300 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-50"
+          className="rounded-lg border border-gray-700 px-3 py-1.5 text-sm font-medium text-gray-300 hover:bg-gray-800"
         >
           New Chat
         </button>
       </header>
 
       {/* Filters row */}
-      <div className="flex items-center gap-4 border-b px-6 py-2">
-        <label className="flex items-center gap-2 text-sm text-gray-600">
+      <div className="flex items-center gap-4 border-b border-gray-800 px-6 py-2">
+        <label className="flex items-center gap-2 text-sm text-gray-400">
           Company
           <select
             value={selectedTicker}
             onChange={(e) => setSelectedTicker(e.target.value)}
-            className="rounded-md border border-gray-300 bg-white px-2 py-1 text-sm text-gray-900"
+            className="rounded-md border border-gray-700 bg-gray-900 px-2 py-1 text-sm text-gray-200"
           >
             <option value="">All Companies</option>
             {companies.map((c) => (
@@ -118,12 +118,12 @@ export default function Home() {
           </select>
         </label>
 
-        <label className="flex items-center gap-2 text-sm text-gray-600">
+        <label className="flex items-center gap-2 text-sm text-gray-400">
           Filing
           <select
             value={filingType}
             onChange={(e) => setFilingType(e.target.value)}
-            className="rounded-md border border-gray-300 bg-white px-2 py-1 text-sm text-gray-900"
+            className="rounded-md border border-gray-700 bg-gray-900 px-2 py-1 text-sm text-gray-200"
           >
             {FILING_TYPES.map((ft) => (
               <option key={ft} value={ft}>
@@ -138,10 +138,10 @@ export default function Home() {
       <div className="flex-1 overflow-y-auto px-6 py-4 scrollbar-hide">
         {messages.length === 0 && !loading && (
           <div className="flex h-full flex-col items-center justify-center gap-6">
-            <p className="text-center text-gray-400">
+            <p className="text-center text-gray-500">
               Select a company and ask a question about their SEC filings.
             </p>
-            <p className="text-center text-xs text-gray-300">
+            <p className="text-center text-xs text-gray-600">
               Data includes the latest 10-K (annual) and 10-Q (quarterly) filings from SEC EDGAR, covering 2025-2026.
             </p>
             <div className="grid max-w-2xl gap-3 sm:grid-cols-2">
@@ -157,7 +157,7 @@ export default function Home() {
                     setInput(q);
                     inputRef.current?.focus();
                   }}
-                  className="rounded-xl border border-gray-200 px-4 py-3 text-left text-sm text-gray-600 hover:border-blue-300 hover:bg-blue-50"
+                  className="rounded-xl border border-gray-700 px-4 py-3 text-left text-sm text-gray-400 hover:border-blue-500 hover:bg-gray-800"
                 >
                   {q}
                 </button>
@@ -173,8 +173,8 @@ export default function Home() {
 
           {loading && (
             <div className="flex justify-start">
-              <div className="max-w-[80%] rounded-2xl bg-gray-100 px-4 py-3">
-                <p className="animate-pulse text-sm text-gray-500">
+              <div className="max-w-[80%] rounded-2xl bg-gray-800 px-4 py-3">
+                <p className="animate-pulse text-sm text-gray-400">
                   Thinking...
                 </p>
               </div>
@@ -187,13 +187,13 @@ export default function Home() {
 
       {/* Error banner */}
       {error && (
-        <div className="border-t border-red-200 bg-red-50 px-6 py-2">
-          <p className="text-sm text-red-700">{error}</p>
+        <div className="border-t border-red-900 bg-red-950 px-6 py-2">
+          <p className="text-sm text-red-400">{error}</p>
         </div>
       )}
 
       {/* Input bar */}
-      <div className="border-t px-6 py-3">
+      <div className="border-t border-gray-800 px-6 py-3">
         <div className="mx-auto flex max-w-3xl gap-3">
           <input
             ref={inputRef}
@@ -203,7 +203,7 @@ export default function Home() {
             onKeyDown={handleKeyDown}
             placeholder="Ask about SEC filings..."
             disabled={loading}
-            className="flex-1 rounded-xl border border-gray-300 px-4 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:outline-none disabled:opacity-50"
+            className="flex-1 rounded-xl border border-gray-700 bg-gray-900 px-4 py-2.5 text-sm text-gray-100 placeholder:text-gray-500 focus:border-blue-500 focus:outline-none disabled:opacity-50"
           />
           <button
             onClick={handleSend}
