@@ -18,4 +18,4 @@ else
 fi
 
 echo "Starting API server..."
-exec uvicorn api:app --host 0.0.0.0 --port "${PORT:-8000}"
+exec uvicorn api:app --host 0.0.0.0 --port "${PORT:-7999}"
