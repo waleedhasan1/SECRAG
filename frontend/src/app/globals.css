@@ -1,24 +1,80 @@
 @import "tailwindcss";
 
-:root {
-  --background: #0f0f0f;
-  --foreground: #e5e5e5;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "MS Sans Serif", "Microsoft Sans Serif", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-mono: "Fixedsys", "Courier New", monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #008080;
+  color: #000000;
+  font-family: "MS Sans Serif", "Microsoft Sans Serif", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 12px;
+  image-rendering: pixelated;
 }
 
-/* Hide scrollbar but keep scrolling */
+/* Win95 raised border (buttons, window frame) */
+.win95-raised {
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  box-shadow: inset -1px -1px 0 #dfdfdf, inset 1px 1px 0 #dfdfdf;
+}
+
+/* Win95 sunken border (inputs, text areas) */
+.win95-sunken {
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  box-shadow: inset 1px 1px 0 #000000;
+}
+
+/* Win95 button */
+.win95-btn {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  box-shadow: inset -1px -1px 0 #404040;
+  padding: 2px 12px;
+  min-height: 23px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.win95-btn:active {
+  border-color: #808080 #ffffff #ffffff #808080;
+  box-shadow: inset 1px 1px 0 #404040;
+  padding: 3px 11px 1px 13px;
+}
+.win95-btn:disabled {
+  color: #808080;
+  text-shadow: 1px 1px 0 #ffffff;
+  cursor: default;
+}
+
+/* Win95 title bar */
+.win95-titlebar {
+  background: linear-gradient(to right, #000080, #1084d0);
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 2px 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+/* Win95 select/dropdown */
+.win95-select {
+  background: #ffffff;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  box-shadow: inset 1px 1px 0 #000000;
+  padding: 1px 4px;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Scrollbar styling */
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;

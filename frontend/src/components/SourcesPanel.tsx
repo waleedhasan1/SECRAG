@@ -8,27 +8,44 @@ export default function SourcesPanel({ sources }: SourcesPanelProps) {
   if (sources.length === 0) return null;
 
   return (
-    <details className="mt-2 rounded-lg border border-gray-700 bg-gray-900 text-sm">
-      <summary className="cursor-pointer px-3 py-2 font-medium text-gray-400 hover:text-gray-200 select-none">
+    <details style={{ marginTop: "4px", fontSize: "11px" }}>
+      <summary style={{
+        cursor: "pointer",
+        color: "#000080",
+        textDecoration: "underline",
+        fontWeight: "bold",
+      }}>
         Sources ({sources.length})
       </summary>
-      <ol className="list-none space-y-1 px-3 pb-3 pt-1">
+      <div className="win95-sunken" style={{
+        background: "#ffffff",
+        padding: "4px",
+        marginTop: "2px",
+        fontSize: "11px",
+      }}>
         {sources.map((s) => (
-          <li key={s.relevance_rank} className="text-gray-400">
-            <span className="font-mono text-xs text-gray-500">
+          <div key={s.relevance_rank} style={{ padding: "1px 0" }}>
+            <span style={{ fontFamily: "monospace", color: "#808080" }}>
               [{s.relevance_rank}]
             </span>{" "}
-            <span className="font-semibold text-gray-300">{s.ticker}</span>
-            {" — "}
+            <span style={{ fontWeight: "bold" }}>{s.ticker}</span>
+            {" - "}
             {s.filing_type} ({s.filing_date})
             {s.section_path && (
-              <span className="block ml-6 text-xs text-gray-500 truncate">
+              <div style={{
+                marginLeft: "20px",
+                color: "#808080",
+                fontSize: "10px",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                whiteSpace: "nowrap",
+              }}>
                 {s.section_path}
-              </span>
+              </div>
             )}
-          </li>
+          </div>
         ))}
-      </ol>
+      </div>
     </details>
   );
 }
