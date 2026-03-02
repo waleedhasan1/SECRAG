@@ -137,10 +137,29 @@ export default function Home() {
       {/* Chat area */}
       <div className="flex-1 overflow-y-auto px-6 py-4 scrollbar-hide">
         {messages.length === 0 && !loading && (
-          <div className="flex h-full items-center justify-center">
+          <div className="flex h-full flex-col items-center justify-center gap-6">
             <p className="text-center text-gray-400">
               Select a company and ask a question about their SEC filings.
             </p>
+            <div className="grid max-w-2xl gap-3 sm:grid-cols-2">
+              {[
+                "What are JPMorgan's biggest risk factors?",
+                "Compare Goldman Sachs and Morgan Stanley revenue",
+                "What did Bank of America report for net interest income?",
+                "Summarize Northern Trust's latest 10-K filing",
+              ].map((q) => (
+                <button
+                  key={q}
+                  onClick={() => {
+                    setInput(q);
+                    inputRef.current?.focus();
+                  }}
+                  className="rounded-xl border border-gray-200 px-4 py-3 text-left text-sm text-gray-600 hover:border-blue-300 hover:bg-blue-50"
+                >
+                  {q}
+                </button>
+              ))}
+            </div>
           </div>
         )}
 
