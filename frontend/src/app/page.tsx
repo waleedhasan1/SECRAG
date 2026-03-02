@@ -141,6 +141,9 @@ export default function Home() {
             <p className="text-center text-gray-400">
               Select a company and ask a question about their SEC filings.
             </p>
+            <p className="text-center text-xs text-gray-300">
+              Data includes the latest 10-K (annual) and 10-Q (quarterly) filings from SEC EDGAR, covering 2025-2026.
+            </p>
             <div className="grid max-w-2xl gap-3 sm:grid-cols-2">
               {[
                 "What are JPMorgan's biggest risk factors?",
