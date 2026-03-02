@@ -1,5 +1,7 @@
 # SEC Filing RAG Assistant
 
+**[Live Demo](https://secrag-seven.vercel.app/)**
+
 A full-stack Retrieval-Augmented Generation (RAG) system that lets users ask natural language questions about SEC filings (10-K and 10-Q) from major U.S. financial institutions. The system downloads filings from EDGAR, parses and chunks them semantically, embeds them into a vector database, and serves answers through a chat interface with cited sources.
 
 ## Architecture
